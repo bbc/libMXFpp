@@ -82,6 +82,7 @@ public:
     void setBodySID(uint32_t value);
     void setSliceCount(uint8_t value);
     void forceWriteSliceCount(bool enable);
+    void forceWriteCBEDuration0(bool enable);
     void setPosTableCount(uint8_t value);
     void setExtStartOffset(uint64_t value);
     void setVBEByteCount(uint64_t value);
