@@ -463,6 +463,9 @@
     <ClInclude Include="..\..\..\libMXF++\metadata\InterchangeObject.h">
       <Filter>Header Files\metadata</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\libMXF++\metadata\JPEG2000SubDescriptor.h">
+      <Filter>Header Files\metadata</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\libMXF++\metadata\Locator.h">
       <Filter>Header Files\metadata</Filter>
     </ClInclude>
@@ -608,6 +611,9 @@
       <Filter>Header Files\metadata\base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libMXF++\metadata\base\InterchangeObjectBase.h">
+      <Filter>Header Files\metadata\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libMXF++\metadata\base\JPEG2000SubDescriptorBase.h">
       <Filter>Header Files\metadata\base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\libMXF++\metadata\base\LocatorBase.h">

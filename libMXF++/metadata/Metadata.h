@@ -84,6 +84,7 @@
 #include <libMXF++/metadata/VC2SubDescriptor.h>
 #include <libMXF++/metadata/DCTimedTextDescriptor.h>
 #include <libMXF++/metadata/DCTimedTextResourceSubDescriptor.h>
+#include <libMXF++/metadata/JPEG2000SubDescriptor.h>
 
 
 #endif

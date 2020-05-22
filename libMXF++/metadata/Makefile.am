@@ -28,6 +28,7 @@ libmetadata_la_SOURCES = \
 	GroupOfSoundfieldGroupsLabelSubDescriptor.cpp \
 	Identification.cpp \
 	InterchangeObject.cpp \
+	JPEG2000SubDescriptor.cpp \
 	Locator.cpp \
 	MaterialPackage.cpp \
 	MCALabelSubDescriptor.cpp \
@@ -87,6 +88,7 @@ library_include_HEADERS = \
 	Identification.h \
 	InterchangeObject.h \
 	Locator.h \
+	JPEG2000SubDescriptor.h \
 	MaterialPackage.h \
 	Metadata.h \
 	MCALabelSubDescriptor.h \

@@ -26,6 +26,7 @@ libbase_la_SOURCES = \
 	GroupOfSoundfieldGroupsLabelSubDescriptorBase.cpp \
 	IdentificationBase.cpp \
 	InterchangeObjectBase.cpp \
+	JPEG2000SubDescriptorBase.cpp \
 	LocatorBase.cpp \
 	MaterialPackageBase.cpp \
 	MCALabelSubDescriptorBase.cpp \
@@ -85,6 +86,7 @@ library_include_HEADERS = \
 	IdentificationBase.h \
 	InterchangeObjectBase.h \
 	LocatorBase.h \
+	JPEG2000SubDescriptorBase.h \
 	MaterialPackageBase.h \
 	MCALabelSubDescriptorBase.h \
 	MPEGVideoDescriptorBase.h \

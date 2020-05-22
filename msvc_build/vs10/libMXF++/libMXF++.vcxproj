@@ -116,6 +116,7 @@
     <ClCompile Include="..\..\..\libMXF++\metadata\Identification.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\InterchangeObject.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\Locator.cpp" />
+    <ClCompile Include="..\..\..\libMXF++\metadata\JPEG2000SubDescriptor.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\MaterialPackage.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\MCALabelSubDescriptor.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\MPEGVideoDescriptor.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="..\..\..\libMXF++\metadata\base\GroupOfSoundfieldGroupsLabelSubDescriptorBase.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\base\IdentificationBase.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\base\InterchangeObjectBase.cpp" />
+    <ClCompile Include="..\..\..\libMXF++\metadata\base\JPEG2000SubDescriptorBase.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\base\LocatorBase.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\base\MaterialPackageBase.cpp" />
     <ClCompile Include="..\..\..\libMXF++\metadata\base\MCALabelSubDescriptorBase.cpp" />
@@ -230,6 +232,7 @@
     <ClInclude Include="..\..\..\libMXF++\metadata\GroupOfSoundfieldGroupsLabelSubDescriptor.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\Identification.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\InterchangeObject.h" />
+    <ClInclude Include="..\..\..\libMXF++\metadata\JPEG2000SubDescriptor.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\Locator.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\MaterialPackage.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\MCALabelSubDescriptor.h" />
@@ -281,6 +284,7 @@
     <ClInclude Include="..\..\..\libMXF++\metadata\base\GroupOfSoundfieldGroupsLabelSubDescriptorBase.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\base\IdentificationBase.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\base\InterchangeObjectBase.h" />
+    <ClInclude Include="..\..\..\libMXF++\metadata\base\JPEG2000SubDescriptorBase.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\base\LocatorBase.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\base\MaterialPackageBase.h" />
     <ClInclude Include="..\..\..\libMXF++\metadata\base\MCALabelSubDescriptorBase.h" />

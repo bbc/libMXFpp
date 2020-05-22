@@ -148,6 +148,7 @@ public:
     bool getBooleanItem(const mxfKey *itemKey) const;
     mxfProductVersion getProductVersionItem(const mxfKey *itemKey) const;
     mxfRGBALayout getRGBALayoutItem(const mxfKey *itemKey) const;
+    mxfJ2KExtendedCapabilities getJ2KExtendedCapabilitiesItem(const mxfKey *itemKey) const;
     std::string getStringItem(const mxfKey *itemKey) const;
     std::string getUTF8StringItem(const mxfKey *itemKey) const;
     std::string getISO7StringItem(const mxfKey *itemKey) const;
@@ -175,6 +176,7 @@ public:
     std::vector<int64_t> getPositionArrayItem(const mxfKey *itemKey) const;
     std::vector<bool> getBooleanArrayItem(const mxfKey *itemKey) const;
     std::vector<mxfProductVersion> getProductVersionArrayItem(const mxfKey *itemKey) const;
+    std::vector<mxfJ2KComponentSizing> getJ2KComponentSizingArrayItem(const mxfKey *itemKey) const;
 
     ObjectIterator* getStrongRefArrayItem(const mxfKey *itemKey) const;
     ObjectIterator* getWeakRefArrayItem(const mxfKey *itemKey) const;
@@ -202,6 +204,7 @@ public:
     void setBooleanItem(const mxfKey *itemKey, bool value);
     void setProductVersionItem(const mxfKey *itemKey, mxfProductVersion value);
     void setRGBALayoutItem(const mxfKey *itemKey, mxfRGBALayout value);
+    void setJ2KExtendedCapabilitiesItem(const mxfKey *itemKey, mxfJ2KExtendedCapabilities value);
     void setStringItem(const mxfKey *itemKey, std::string value);
     void setFixedSizeStringItem(const mxfKey *itemKey, std::string value, uint16_t size);
     void setUTF8StringItem(const mxfKey *itemKey, std::string value);
@@ -228,6 +231,7 @@ public:
     void setPositionArrayItem(const mxfKey *itemKey, const std::vector<int64_t> &value);
     void setBooleanArrayItem(const mxfKey *itemKey, const std::vector<bool> &value);
     void setProductVersionArrayItem(const mxfKey *itemKey, const std::vector<mxfProductVersion> &value);
+    void setJ2KComponentSizingArrayItem(const mxfKey *itemKey, const std::vector<mxfJ2KComponentSizing> &value);
 
     void setStrongRefArrayItem(const mxfKey *itemKey, ObjectIterator *iter);
     void setWeakRefArrayItem(const mxfKey *itemKey, ObjectIterator *iter);
@@ -251,6 +255,7 @@ public:
     void appendPositionArrayItem(const mxfKey *itemKey, int64_t value);
     void appendBooleanArrayItem(const mxfKey *itemKey, bool value);
     void appendProductVersionArrayItem(const mxfKey *itemKey, mxfProductVersion value);
+    void appendJ2KComponentSizingArrayItem(const mxfKey *itemKey, mxfJ2KComponentSizing value);
 
     void appendStrongRefArrayItem(const mxfKey *itemKey, MetadataSet *value);
     void appendWeakRefArrayItem(const mxfKey *itemKey, MetadataSet *value);

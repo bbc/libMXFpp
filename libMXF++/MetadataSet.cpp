@@ -310,6 +310,13 @@ mxfRGBALayout MetadataSet::getRGBALayoutItem(const mxfKey *itemKey) const
     return result;
 }
 
+mxfJ2KExtendedCapabilities MetadataSet::getJ2KExtendedCapabilitiesItem(const mxfKey *itemKey) const
+{
+    mxfJ2KExtendedCapabilities result;
+    MXFPP_CHECK(mxf_get_j2k_ext_capabilities_item(_cMetadataSet, itemKey, &result));
+    return result;
+}
+
 string MetadataSet::getStringItem(const mxfKey *itemKey) const
 {
     string result;
@@ -774,6 +781,24 @@ vector<mxfProductVersion> MetadataSet::getProductVersionArrayItem(const mxfKey *
     return result;
 }
 
+vector<mxfJ2KComponentSizing> MetadataSet::getJ2KComponentSizingArrayItem(const mxfKey *itemKey) const
+{
+    vector<mxfJ2KComponentSizing> result;
+    ::MXFArrayItemIterator iter;
+    uint8_t *element;
+    uint32_t elementLength;
+    mxfJ2KComponentSizing value;
+
+    MXFPP_CHECK(mxf_initialise_array_item_iterator(_cMetadataSet, itemKey, &iter));
+    while (mxf_next_array_item_element(&iter, &element, &elementLength))
+    {
+        MXFPP_CHECK(elementLength == mxfJ2KComponentSizing_extlen);
+        mxf_get_j2k_component_sizing(element, &value);
+        result.push_back(value);
+    }
+    return result;
+}
+
 ObjectIterator* MetadataSet::getStrongRefArrayItem(const mxfKey *itemKey) const
 {
     return new ReferencedObjectIterator(_headerMetadata, this, itemKey);
@@ -888,6 +913,11 @@ void MetadataSet::setProductVersionItem(const mxfKey *itemKey, mxfProductVersion
 void MetadataSet::setRGBALayoutItem(const mxfKey *itemKey, mxfRGBALayout value)
 {
     MXFPP_CHECK(mxf_set_rgba_layout_item(_cMetadataSet, itemKey, &value));
+}
+
+void MetadataSet::setJ2KExtendedCapabilitiesItem(const mxfKey *itemKey, mxfJ2KExtendedCapabilities value)
+{
+    MXFPP_CHECK(mxf_set_j2k_ext_capabilities_item(_cMetadataSet, itemKey, &value));
 }
 
 void MetadataSet::setStringItem(const mxfKey *itemKey, string value)
@@ -1188,6 +1218,18 @@ void MetadataSet::setProductVersionArrayItem(const mxfKey *itemKey, const vector
     }
 }
 
+void MetadataSet::setJ2KComponentSizingArrayItem(const mxfKey *itemKey, const vector<mxfJ2KComponentSizing> &value)
+{
+    size_t i;
+    uint8_t *data = 0;
+    MXFPP_CHECK(mxf_alloc_array_item_elements(_cMetadataSet, itemKey, mxfJ2KComponentSizing_extlen, (uint32_t)value.size(), &data));
+    for (i = 0; i < value.size(); i++)
+    {
+        mxf_set_j2k_component_sizing(&value.at(i), data);
+        data += mxfJ2KComponentSizing_extlen;
+    }
+}
+
 void MetadataSet::setStrongRefArrayItem(const mxfKey *itemKey, ObjectIterator *iter)
 {
     uint8_t *data = 0;
@@ -1343,6 +1385,13 @@ void MetadataSet::appendProductVersionArrayItem(const mxfKey *itemKey, mxfProduc
     uint8_t *data = 0;
     MXFPP_CHECK(mxf_grow_array_item(_cMetadataSet, itemKey, mxfProductVersion_extlen, 1, &data));
     mxf_set_product_version(&value, data);
+}
+
+void MetadataSet::appendJ2KComponentSizingArrayItem(const mxfKey *itemKey, mxfJ2KComponentSizing value)
+{
+    uint8_t *data = 0;
+    MXFPP_CHECK(mxf_grow_array_item(_cMetadataSet, itemKey, mxfJ2KComponentSizing_extlen, 1, &data));
+    mxf_set_j2k_component_sizing(&value, data);
 }
 
 void MetadataSet::appendStrongRefArrayItem(const mxfKey *itemKey, MetadataSet *value)
