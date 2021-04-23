@@ -149,6 +149,8 @@ public:
     mxfProductVersion getProductVersionItem(const mxfKey *itemKey) const;
     mxfRGBALayout getRGBALayoutItem(const mxfKey *itemKey) const;
     mxfJ2KExtendedCapabilities getJ2KExtendedCapabilitiesItem(const mxfKey *itemKey) const;
+    mxfThreeColorPrimaries getThreeColorPrimariesItem(const mxfKey *itemKey) const;
+    mxfColorPrimary getColorPrimaryItem(const mxfKey *itemKey) const;
     std::string getStringItem(const mxfKey *itemKey) const;
     std::string getUTF8StringItem(const mxfKey *itemKey) const;
     std::string getISO7StringItem(const mxfKey *itemKey) const;
@@ -205,6 +207,8 @@ public:
     void setProductVersionItem(const mxfKey *itemKey, mxfProductVersion value);
     void setRGBALayoutItem(const mxfKey *itemKey, mxfRGBALayout value);
     void setJ2KExtendedCapabilitiesItem(const mxfKey *itemKey, mxfJ2KExtendedCapabilities value);
+    void setThreeColorPrimariesItem(const mxfKey *itemKey, mxfThreeColorPrimaries value) const;
+    void setColorPrimaryItem(const mxfKey *itemKey, mxfColorPrimary value) const;
     void setStringItem(const mxfKey *itemKey, std::string value);
     void setFixedSizeStringItem(const mxfKey *itemKey, std::string value, uint16_t size);
     void setUTF8StringItem(const mxfKey *itemKey, std::string value);

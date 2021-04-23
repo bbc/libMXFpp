@@ -317,6 +317,20 @@ mxfJ2KExtendedCapabilities MetadataSet::getJ2KExtendedCapabilitiesItem(const mxf
     return result;
 }
 
+mxfThreeColorPrimaries MetadataSet::getThreeColorPrimariesItem(const mxfKey *itemKey) const
+{
+    mxfThreeColorPrimaries result;
+    MXFPP_CHECK(mxf_get_three_color_primaries_item(_cMetadataSet, itemKey, &result));
+    return result;
+}
+
+mxfColorPrimary MetadataSet::getColorPrimaryItem(const mxfKey *itemKey) const
+{
+    mxfColorPrimary result;
+    MXFPP_CHECK(mxf_get_color_primary_item(_cMetadataSet, itemKey, &result));
+    return result;
+}
+
 string MetadataSet::getStringItem(const mxfKey *itemKey) const
 {
     string result;
@@ -918,6 +932,16 @@ void MetadataSet::setRGBALayoutItem(const mxfKey *itemKey, mxfRGBALayout value)
 void MetadataSet::setJ2KExtendedCapabilitiesItem(const mxfKey *itemKey, mxfJ2KExtendedCapabilities value)
 {
     MXFPP_CHECK(mxf_set_j2k_ext_capabilities_item(_cMetadataSet, itemKey, &value));
+}
+
+void MetadataSet::setThreeColorPrimariesItem(const mxfKey *itemKey, mxfThreeColorPrimaries value) const
+{
+    MXFPP_CHECK(mxf_set_three_color_primaries_item(_cMetadataSet, itemKey, &value));
+}
+
+void MetadataSet::setColorPrimaryItem(const mxfKey *itemKey, mxfColorPrimary value) const
+{
+    MXFPP_CHECK(mxf_set_color_primary_item(_cMetadataSet, itemKey, &value));
 }
 
 void MetadataSet::setStringItem(const mxfKey *itemKey, string value)

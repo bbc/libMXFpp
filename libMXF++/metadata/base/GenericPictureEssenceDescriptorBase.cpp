@@ -317,6 +317,46 @@ mxfUL GenericPictureEssenceDescriptorBase::getColorPrimaries() const
     return getULItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ColorPrimaries));
 }
 
+bool GenericPictureEssenceDescriptorBase::haveMasteringDisplayPrimaries() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayPrimaries));
+}
+
+mxfThreeColorPrimaries GenericPictureEssenceDescriptorBase::getMasteringDisplayPrimaries() const
+{
+    return getThreeColorPrimariesItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayPrimaries));
+}
+
+bool GenericPictureEssenceDescriptorBase::haveMasteringDisplayWhitePointChromaticity() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayWhitePointChromaticity));
+}
+
+mxfColorPrimary GenericPictureEssenceDescriptorBase::getMasteringDisplayWhitePointChromaticity() const
+{
+    return getColorPrimaryItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayWhitePointChromaticity));
+}
+
+bool GenericPictureEssenceDescriptorBase::haveMasteringDisplayMaximumLuminance() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMaximumLuminance));
+}
+
+uint32_t GenericPictureEssenceDescriptorBase::getMasteringDisplayMaximumLuminance() const
+{
+    return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMaximumLuminance));
+}
+
+bool GenericPictureEssenceDescriptorBase::haveMasteringDisplayMinimumLuminance() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMinimumLuminance));
+}
+
+uint32_t GenericPictureEssenceDescriptorBase::getMasteringDisplayMinimumLuminance() const
+{
+    return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMinimumLuminance));
+}
+
 void GenericPictureEssenceDescriptorBase::setSignalStandard(uint8_t value)
 {
     setUInt8Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, SignalStandard), value);
@@ -452,3 +492,22 @@ void GenericPictureEssenceDescriptorBase::setColorPrimaries(mxfUL value)
     setULItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ColorPrimaries), value);
 }
 
+void GenericPictureEssenceDescriptorBase::setMasteringDisplayPrimaries(mxfThreeColorPrimaries value)
+{
+    setThreeColorPrimariesItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayPrimaries), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setMasteringDisplayWhitePointChromaticity(mxfColorPrimary value)
+{
+    setColorPrimaryItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayWhitePointChromaticity), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setMasteringDisplayMaximumLuminance(uint32_t value)
+{
+    setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMaximumLuminance), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setMasteringDisplayMinimumLuminance(uint32_t value)
+{
+    setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMinimumLuminance), value);
+}

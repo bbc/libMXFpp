@@ -106,6 +106,14 @@ public:
    mxfUL getCodingEquations() const;
    bool haveColorPrimaries() const;
    mxfUL getColorPrimaries() const;
+   bool haveMasteringDisplayPrimaries() const;
+   mxfThreeColorPrimaries getMasteringDisplayPrimaries() const;
+   bool haveMasteringDisplayWhitePointChromaticity() const;
+   mxfColorPrimary getMasteringDisplayWhitePointChromaticity() const;
+   bool haveMasteringDisplayMaximumLuminance() const;
+   uint32_t getMasteringDisplayMaximumLuminance() const;
+   bool haveMasteringDisplayMinimumLuminance() const;
+   uint32_t getMasteringDisplayMinimumLuminance() const;
 
 
    // setters
@@ -137,6 +145,10 @@ public:
    void setPictureEssenceCoding(mxfUL value);
    void setCodingEquations(mxfUL value);
    void setColorPrimaries(mxfUL value);
+   void setMasteringDisplayPrimaries(mxfThreeColorPrimaries value);
+   void setMasteringDisplayWhitePointChromaticity(mxfColorPrimary value);
+   void setMasteringDisplayMaximumLuminance(uint32_t value);
+   void setMasteringDisplayMinimumLuminance(uint32_t value);
 
 
 protected:
