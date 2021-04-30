@@ -357,6 +357,46 @@ uint32_t GenericPictureEssenceDescriptorBase::getMasteringDisplayMinimumLuminanc
     return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMinimumLuminance));
 }
 
+bool GenericPictureEssenceDescriptorBase::haveActiveHeight() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveHeight));
+}
+
+uint32_t GenericPictureEssenceDescriptorBase::getActiveHeight() const
+{
+    return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveHeight));
+}
+
+bool GenericPictureEssenceDescriptorBase::haveActiveWidth() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveWidth));
+}
+
+uint32_t GenericPictureEssenceDescriptorBase::getActiveWidth() const
+{
+    return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveWidth));
+}
+
+bool GenericPictureEssenceDescriptorBase::haveActiveXOffset() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveXOffset));
+}
+
+uint32_t GenericPictureEssenceDescriptorBase::getActiveXOffset() const
+{
+    return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveXOffset));
+}
+
+bool GenericPictureEssenceDescriptorBase::haveActiveYOffset() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveYOffset));
+}
+
+uint32_t GenericPictureEssenceDescriptorBase::getActiveYOffset() const
+{
+    return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveYOffset));
+}
+
 void GenericPictureEssenceDescriptorBase::setSignalStandard(uint8_t value)
 {
     setUInt8Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, SignalStandard), value);
@@ -510,4 +550,24 @@ void GenericPictureEssenceDescriptorBase::setMasteringDisplayMaximumLuminance(ui
 void GenericPictureEssenceDescriptorBase::setMasteringDisplayMinimumLuminance(uint32_t value)
 {
     setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, MasteringDisplayMinimumLuminance), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setActiveHeight(uint32_t value)
+{
+    setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveHeight), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setActiveWidth(uint32_t value)
+{
+    setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveWidth), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setActiveXOffset(uint32_t value)
+{
+    setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveXOffset), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setActiveYOffset(uint32_t value)
+{
+    setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveYOffset), value);
 }

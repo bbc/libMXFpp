@@ -114,6 +114,14 @@ public:
    uint32_t getMasteringDisplayMaximumLuminance() const;
    bool haveMasteringDisplayMinimumLuminance() const;
    uint32_t getMasteringDisplayMinimumLuminance() const;
+   bool haveActiveHeight() const;
+   uint32_t getActiveHeight() const;
+   bool haveActiveWidth() const;
+   uint32_t getActiveWidth() const;
+   bool haveActiveXOffset() const;
+   uint32_t getActiveXOffset() const;
+   bool haveActiveYOffset() const;
+   uint32_t getActiveYOffset() const;
 
 
    // setters
@@ -149,6 +157,10 @@ public:
    void setMasteringDisplayWhitePointChromaticity(mxfColorPrimary value);
    void setMasteringDisplayMaximumLuminance(uint32_t value);
    void setMasteringDisplayMinimumLuminance(uint32_t value);
+   void setActiveHeight(uint32_t value);
+   void setActiveWidth(uint32_t value);
+   void setActiveXOffset(uint32_t value);
+   void setActiveYOffset(uint32_t value);
 
 
 protected:
