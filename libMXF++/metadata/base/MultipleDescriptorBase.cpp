@@ -62,7 +62,7 @@ MultipleDescriptorBase::~MultipleDescriptorBase()
 std::vector<GenericDescriptor*> MultipleDescriptorBase::getSubDescriptorUIDs() const
 {
     vector<GenericDescriptor*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(MultipleDescriptor, SubDescriptorUIDs)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(MultipleDescriptor, SubDescriptorUIDs)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<GenericDescriptor*>(iter->get()) != 0);

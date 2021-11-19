@@ -154,7 +154,7 @@ int32_t TaggedValue::getInt32Value()
 vector<TaggedValue*> TaggedValue::getAvidAttributes()
 {
     vector<TaggedValue*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(TaggedValue, TaggedValueAttributeList)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(TaggedValue, TaggedValueAttributeList)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<TaggedValue*>(iter->get()) != 0);

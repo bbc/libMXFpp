@@ -91,7 +91,7 @@ bool DMSegmentBase::haveDMFramework() const
 
 DMFramework* DMSegmentBase::getDMFramework() const
 {
-    auto_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(DMSegment, DMFramework)));
+    unique_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(DMSegment, DMFramework)));
     MXFPP_CHECK(dynamic_cast<DMFramework*>(obj.get()) != 0);
     return dynamic_cast<DMFramework*>(obj.release());
 }

@@ -86,7 +86,7 @@ std::string GenericTrackBase::getTrackName() const
 
 StructuralComponent* GenericTrackBase::getSequence() const
 {
-    auto_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(GenericTrack, Sequence)));
+    unique_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(GenericTrack, Sequence)));
     MXFPP_CHECK(dynamic_cast<StructuralComponent*>(obj.get()) != 0);
     return dynamic_cast<StructuralComponent*>(obj.release());
 }

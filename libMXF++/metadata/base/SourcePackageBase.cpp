@@ -66,7 +66,7 @@ bool SourcePackageBase::haveDescriptor() const
 
 GenericDescriptor* SourcePackageBase::getDescriptor() const
 {
-    auto_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(SourcePackage, Descriptor)));
+    unique_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(SourcePackage, Descriptor)));
     MXFPP_CHECK(dynamic_cast<GenericDescriptor*>(obj.get()) != 0);
     return dynamic_cast<GenericDescriptor*>(obj.release());
 }

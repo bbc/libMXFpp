@@ -62,7 +62,7 @@ ContentStorageBase::~ContentStorageBase()
 std::vector<GenericPackage*> ContentStorageBase::getPackages() const
 {
     vector<GenericPackage*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(ContentStorage, Packages)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(ContentStorage, Packages)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<GenericPackage*>(iter->get()) != 0);
@@ -79,7 +79,7 @@ bool ContentStorageBase::haveEssenceContainerData() const
 std::vector<EssenceContainerData*> ContentStorageBase::getEssenceContainerData() const
 {
     vector<EssenceContainerData*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(ContentStorage, EssenceContainerData)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(ContentStorage, EssenceContainerData)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<EssenceContainerData*>(iter->get()) != 0);

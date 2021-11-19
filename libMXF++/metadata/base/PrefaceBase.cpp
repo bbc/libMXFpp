@@ -86,7 +86,7 @@ bool PrefaceBase::havePrimaryPackage() const
 
 GenericPackage* PrefaceBase::getPrimaryPackage() const
 {
-    auto_ptr<MetadataSet> obj(getWeakRefItem(&MXF_ITEM_K(Preface, PrimaryPackage)));
+    unique_ptr<MetadataSet> obj(getWeakRefItem(&MXF_ITEM_K(Preface, PrimaryPackage)));
     MXFPP_CHECK(dynamic_cast<GenericPackage*>(obj.get()) != 0);
     return dynamic_cast<GenericPackage*>(obj.release());
 }
@@ -94,7 +94,7 @@ GenericPackage* PrefaceBase::getPrimaryPackage() const
 std::vector<Identification*> PrefaceBase::getIdentifications() const
 {
     vector<Identification*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(Preface, Identifications)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(Preface, Identifications)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<Identification*>(iter->get()) != 0);
@@ -105,7 +105,7 @@ std::vector<Identification*> PrefaceBase::getIdentifications() const
 
 ContentStorage* PrefaceBase::getContentStorage() const
 {
-    auto_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(Preface, ContentStorage)));
+    unique_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(Preface, ContentStorage)));
     MXFPP_CHECK(dynamic_cast<ContentStorage*>(obj.get()) != 0);
     return dynamic_cast<ContentStorage*>(obj.release());
 }

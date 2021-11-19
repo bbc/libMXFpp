@@ -66,7 +66,7 @@ bool TextBasedDMFrameworkBase::haveTextBasedObject() const
 
 TextBasedObject* TextBasedDMFrameworkBase::getTextBasedObject() const
 {
-    auto_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(TextBasedDMFramework, TextBasedObject)));
+    unique_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(TextBasedDMFramework, TextBasedObject)));
     MXFPP_CHECK(dynamic_cast<TextBasedObject*>(obj.get()) != 0);
     return dynamic_cast<TextBasedObject*>(obj.release());
 }

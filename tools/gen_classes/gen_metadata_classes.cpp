@@ -812,7 +812,7 @@ static void gen_class(const char *directory, MXFDataModel *dataModel, MXFSetDef 
                     c = typeName[strlen(typeName) - 1];
                     typeName[strlen(typeName) - 1] = '\0';
                     fprintf(baseSourceFile,
-                        "    auto_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(%s, %s)));\n"
+                        "    unique_ptr<MetadataSet> obj(getStrongRefItem(&MXF_ITEM_K(%s, %s)));\n"
                         "    MXFPP_CHECK(dynamic_cast<%s*>(obj.get()) != 0);\n"
                         "    return dynamic_cast<%s*>(obj.release());\n",
                         className, itemName, typeName, typeName);
@@ -822,7 +822,7 @@ static void gen_class(const char *directory, MXFDataModel *dataModel, MXFSetDef 
                     c = typeName[strlen(typeName) - 1];
                     typeName[strlen(typeName) - 1] = '\0';
                     fprintf(baseSourceFile,
-                        "    auto_ptr<MetadataSet> obj(getWeakRefItem(&MXF_ITEM_K(%s, %s)));\n"
+                        "    unique_ptr<MetadataSet> obj(getWeakRefItem(&MXF_ITEM_K(%s, %s)));\n"
                         "    MXFPP_CHECK(dynamic_cast<%s*>(obj.get()) != 0);\n"
                         "    return dynamic_cast<%s*>(obj.release());\n",
                         className, itemName, typeName, typeName);
@@ -1001,7 +1001,7 @@ static void gen_class(const char *directory, MXFDataModel *dataModel, MXFSetDef 
                             elementTypeName[strlen(elementTypeName) - 1] = '\0';
                             fprintf(baseSourceFile,
                                 "    vector<%s*> result;\n"
-                                "    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(%s, %s)));\n"
+                                "    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(%s, %s)));\n"
                                 "    while (iter->next())\n"
                                 "    {\n"
                                 "        MXFPP_CHECK(dynamic_cast<%s*>(iter->get()) != 0);\n"
@@ -1016,7 +1016,7 @@ static void gen_class(const char *directory, MXFDataModel *dataModel, MXFSetDef 
                             elementTypeName[strlen(elementTypeName) - 1] = '\0';
                             fprintf(baseSourceFile,
                                 "    vector<%s*> result;\n"
-                                "    auto_ptr<ObjectIterator> iter(getWeakRefArrayItem(&MXF_ITEM_K(%s, %s)));\n"
+                                "    unique_ptr<ObjectIterator> iter(getWeakRefArrayItem(&MXF_ITEM_K(%s, %s)));\n"
                                 "    while (iter->next())\n"
                                 "    {\n"
                                 "        MXFPP_CHECK(dynamic_cast<%s*>(iter->get()) != 0);\n"

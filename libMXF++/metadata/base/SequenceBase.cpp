@@ -62,7 +62,7 @@ SequenceBase::~SequenceBase()
 std::vector<StructuralComponent*> SequenceBase::getStructuralComponents() const
 {
     vector<StructuralComponent*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(Sequence, StructuralComponents)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(Sequence, StructuralComponents)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<StructuralComponent*>(iter->get()) != 0);

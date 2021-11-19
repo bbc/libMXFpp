@@ -87,7 +87,7 @@ mxfTimestamp GenericPackageBase::getPackageModifiedDate() const
 std::vector<GenericTrack*> GenericPackageBase::getTracks() const
 {
     vector<GenericTrack*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericPackage, Tracks)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericPackage, Tracks)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<GenericTrack*>(iter->get()) != 0);

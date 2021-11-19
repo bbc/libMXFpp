@@ -336,7 +336,7 @@ int main(int argc, const char **argv)
 
     try
     {
-        auto_ptr<D10MXFOP1AWriter> writer(new D10MXFOP1AWriter());
+        unique_ptr<D10MXFOP1AWriter> writer(new D10MXFOP1AWriter());
 
         writer->SetSampleRate(sample_rate);
         writer->SetAudioChannelCount(num_audio_files);

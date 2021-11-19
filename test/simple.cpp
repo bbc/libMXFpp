@@ -50,7 +50,7 @@ static const char TEST_WRITE_FILENAME[] = "write_test.mxf";
 static void testWrite()
 {
     // open file
-    auto_ptr<File> file(File::openNew(TEST_WRITE_FILENAME));
+    unique_ptr<File> file(File::openNew(TEST_WRITE_FILENAME));
     file->setMinLLen(4);
 
 
@@ -66,8 +66,8 @@ static void testWrite()
 
 
     // header metadata
-    auto_ptr<DataModel> dataModel(new DataModel());
-    auto_ptr<AvidHeaderMetadata> headerMetadata(new AvidHeaderMetadata(dataModel.get()));
+    unique_ptr<DataModel> dataModel(new DataModel());
+    unique_ptr<AvidHeaderMetadata> headerMetadata(new AvidHeaderMetadata(dataModel.get()));
 
     headerMetadata->createDefaultMetaDictionary();
 
@@ -113,9 +113,9 @@ static void testRead(string filename)
     uint8_t llen;
     uint64_t len;
 
-    auto_ptr<File> file(File::openRead(filename));
-    auto_ptr<DataModel> dataModel(new DataModel());
-    auto_ptr<AvidHeaderMetadata> headerMetadata(new AvidHeaderMetadata(dataModel.get()));
+    unique_ptr<File> file(File::openRead(filename));
+    unique_ptr<DataModel> dataModel(new DataModel());
+    unique_ptr<AvidHeaderMetadata> headerMetadata(new AvidHeaderMetadata(dataModel.get()));
 
 
     // read header partition

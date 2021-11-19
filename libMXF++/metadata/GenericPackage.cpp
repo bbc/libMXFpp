@@ -59,7 +59,7 @@ GenericPackage::~GenericPackage()
 vector<TaggedValue*> GenericPackage::getAvidAttributes()
 {
     vector<TaggedValue*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericPackage, MobAttributeList)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericPackage, MobAttributeList)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<TaggedValue*>(iter->get()) != 0);
@@ -72,7 +72,7 @@ vector<TaggedValue*> GenericPackage::getAvidAttributes()
 vector<TaggedValue*> GenericPackage::getAvidUserComments()
 {
     vector<TaggedValue*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericPackage, UserComments)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericPackage, UserComments)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<TaggedValue*>(iter->get()) != 0);

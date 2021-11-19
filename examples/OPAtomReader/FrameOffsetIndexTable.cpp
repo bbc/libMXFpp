@@ -71,7 +71,7 @@ int add_frame_offset_index_entry(void *data, uint32_t num_entries, MXFIndexTable
 
 FrameOffsetIndexTableSegment* FrameOffsetIndexTableSegment::read(File *file, uint64_t segment_len)
 {
-    auto_ptr<FrameOffsetIndexTableSegment> index_table(new FrameOffsetIndexTableSegment());
+    unique_ptr<FrameOffsetIndexTableSegment> index_table(new FrameOffsetIndexTableSegment());
     mxf_free_index_table_segment(&index_table->_cSegment);
 
     MXFPP_CHECK(mxf_avid_read_index_table_segment_2(file->getCFile(), segment_len, mxf_default_add_delta_entry, 0,

@@ -67,7 +67,7 @@ bool GenericDescriptorBase::haveLocators() const
 std::vector<Locator*> GenericDescriptorBase::getLocators() const
 {
     vector<Locator*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericDescriptor, Locators)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericDescriptor, Locators)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<Locator*>(iter->get()) != 0);
@@ -84,7 +84,7 @@ bool GenericDescriptorBase::haveSubDescriptors() const
 std::vector<SubDescriptor*> GenericDescriptorBase::getSubDescriptors() const
 {
     vector<SubDescriptor*> result;
-    auto_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericDescriptor, SubDescriptors)));
+    unique_ptr<ObjectIterator> iter(getStrongRefArrayItem(&MXF_ITEM_K(GenericDescriptor, SubDescriptors)));
     while (iter->next())
     {
         MXFPP_CHECK(dynamic_cast<SubDescriptor*>(iter->get()) != 0);
