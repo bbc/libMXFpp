@@ -1,6 +1,6 @@
 AC_INIT([libMXF++], [1.0.3], [], [libmxf++])
 AC_CONFIG_SRCDIR([libMXF++/File.cpp])
-AC_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([1.11 -Wall parallel-tests])
@@ -45,15 +45,13 @@ dnl -- Enable options
 dnl-----------------------------------------------------------------------------
 
 AC_ARG_ENABLE(examples,
-	AC_HELP_STRING([--disable-examples],
-		[disable building of all examples [[default=no]]]),
+	AS_HELP_STRING([--disable-examples],[disable building of all examples [[default=no]]]),
 	[enable_examples=$enableval],
 	[enable_examples="yes"])
 
 
 AC_ARG_ENABLE(archive-reader,
-	AC_HELP_STRING([--disable-archive-reader],
-		[disable building of archive reader example [[default=no]]]),
+	AS_HELP_STRING([--disable-archive-reader],[disable building of archive reader example [[default=no]]]),
 	[enable_archive_reader=$enableval],
 	[enable_archive_reader="default"])
 if test x"$enable_archive_reader" = xdefault && test x"$enable_examples" = xyes; then
@@ -63,8 +61,7 @@ AM_CONDITIONAL(ENABLE_ARCHIVE_READER, test x"$enable_archive_reader" = xyes)
 
 
 AC_ARG_ENABLE(archive-writer,
-	AC_HELP_STRING([--disable-archive-writer],
-		[disable building of archive writer example [[default=no]]]),
+	AS_HELP_STRING([--disable-archive-writer],[disable building of archive writer example [[default=no]]]),
 	[enable_archive_writer=$enableval],
 	[enable_archive_writer="default"])
 if test x"$enable_archive_writer" = xdefault && test x"$enable_examples" = xyes; then
@@ -74,8 +71,7 @@ AM_CONDITIONAL(ENABLE_ARCHIVE_WRITER, [test x"$enable_archive_writer" = xyes])
 
 
 AC_ARG_ENABLE(avid-writer,
-	AC_HELP_STRING([--disable-avid-writer],
-		[disable building of Avid clip writer example [[default=no]]]),
+	AS_HELP_STRING([--disable-avid-writer],[disable building of Avid clip writer example [[default=no]]]),
 	[enable_avid_writer=$enableval],
 	[enable_avid_writer="default"])
 if test x"$enable_avid_writer" = xdefault && test x"$enable_examples" = xyes; then
@@ -85,8 +81,7 @@ AM_CONDITIONAL(ENABLE_AVID_WRITER, [test x"$enable_avid_writer" = xyes])
 
 
 AC_ARG_ENABLE(d10-writer,
-	AC_HELP_STRING([--disable-d10-writer],
-		[disable building of D10 writer example [[default=no]]]),
+	AS_HELP_STRING([--disable-d10-writer],[disable building of D10 writer example [[default=no]]]),
 	[enable_d10_writer=$enableval],
 	[enable_d10_writer="default"])
 if test x"$enable_d10_writer" = xdefault && test x"$enable_examples" = xyes; then
@@ -96,8 +91,7 @@ AM_CONDITIONAL(ENABLE_D10_WRITER, [test x"$enable_d10_writer" = xyes])
 
 
 AC_ARG_ENABLE(opatom-reader,
-	AC_HELP_STRING([--disable-opatom-reader],
-		[disable building of OP Atom reader example [[default=no]]]),
+	AS_HELP_STRING([--disable-opatom-reader],[disable building of OP Atom reader example [[default=no]]]),
 	[enable_opatom_reader=$enableval],
 	[enable_opatom_reader="default"])
 if test x"$enable_opatom_reader" = xdefault && test x"$enable_examples" = xyes; then
