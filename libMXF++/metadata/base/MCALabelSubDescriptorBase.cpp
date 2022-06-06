@@ -182,6 +182,77 @@ std::string MCALabelSubDescriptorBase::getMCAAudioElementKind() const
     return getStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAAudioElementKind));
 }
 
+bool MCALabelSubDescriptorBase::haveMCAContent() const
+{
+    return haveItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContent));
+}
+
+std::string MCALabelSubDescriptorBase::getMCAContent() const
+{
+    return getStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContent));
+}
+
+bool MCALabelSubDescriptorBase::haveMCAUseClass() const
+{
+    return haveItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAUseClass));
+}
+
+std::string MCALabelSubDescriptorBase::getMCAUseClass() const
+{
+    return getStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAUseClass));
+}
+
+bool MCALabelSubDescriptorBase::haveMCAContentSubtype() const
+{
+    return haveItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContentSubtype));
+}
+
+std::string MCALabelSubDescriptorBase::getMCAContentSubtype() const
+{
+    return getStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContentSubtype));
+}
+
+bool MCALabelSubDescriptorBase::haveMCAContentDifferentiator() const
+{
+    return haveItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContentDifferentiator));
+}
+
+std::string MCALabelSubDescriptorBase::getMCAContentDifferentiator() const
+{
+    return getStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContentDifferentiator));
+}
+
+bool MCALabelSubDescriptorBase::haveMCASpokenLanguageAttribute() const
+{
+    return haveItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCASpokenLanguageAttribute));
+}
+
+std::string MCALabelSubDescriptorBase::getMCASpokenLanguageAttribute() const
+{
+    return getISO7StringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCASpokenLanguageAttribute));
+}
+
+bool MCALabelSubDescriptorBase::haveRFC5646AdditionalSpokenLanguages() const
+{
+    return haveItem(&MXF_ITEM_K(MCALabelSubDescriptor, RFC5646AdditionalSpokenLanguages));
+}
+
+std::string MCALabelSubDescriptorBase::getRFC5646AdditionalSpokenLanguages() const
+{
+    return getISO7StringItem(&MXF_ITEM_K(MCALabelSubDescriptor, RFC5646AdditionalSpokenLanguages));
+}
+
+bool MCALabelSubDescriptorBase::haveMCAAdditionalLanguageAttributes() const
+{
+    return haveItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAAdditionalLanguageAttributes));
+}
+
+std::string MCALabelSubDescriptorBase::getMCAAdditionalLanguageAttributes() const
+{
+    return getISO7StringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAAdditionalLanguageAttributes));
+}
+
+
 void MCALabelSubDescriptorBase::setMCAChannelID(uint32_t value)
 {
     setUInt32Item(&MXF_ITEM_K(MCALabelSubDescriptor, MCAChannelID), value);
@@ -250,4 +321,39 @@ void MCALabelSubDescriptorBase::setMCAAudioContentKind(std::string value)
 void MCALabelSubDescriptorBase::setMCAAudioElementKind(std::string value)
 {
     setStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAAudioElementKind), value);
+}
+
+void MCALabelSubDescriptorBase::setMCAContent(std::string value)
+{
+    setStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContent), value);
+}
+
+void MCALabelSubDescriptorBase::setMCAUseClass(std::string value)
+{
+    setStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAUseClass), value);
+}
+
+void MCALabelSubDescriptorBase::setMCAContentSubtype(std::string value)
+{
+    setStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContentSubtype), value);
+}
+
+void MCALabelSubDescriptorBase::setMCAContentDifferentiator(std::string value)
+{
+    setStringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAContentDifferentiator), value);
+}
+
+void MCALabelSubDescriptorBase::setMCASpokenLanguageAttribute(std::string value)
+{
+    setISO7StringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCASpokenLanguageAttribute), value);
+}
+
+void MCALabelSubDescriptorBase::setRFC5646AdditionalSpokenLanguages(std::string value)
+{
+    setISO7StringItem(&MXF_ITEM_K(MCALabelSubDescriptor, RFC5646AdditionalSpokenLanguages), value);
+}
+
+void MCALabelSubDescriptorBase::setMCAAdditionalLanguageAttributes(std::string value)
+{
+    setISO7StringItem(&MXF_ITEM_K(MCALabelSubDescriptor, MCAAdditionalLanguageAttributes), value);
 }

@@ -79,6 +79,20 @@ public:
    std::string getMCAAudioContentKind() const;
    bool haveMCAAudioElementKind() const;
    std::string getMCAAudioElementKind() const;
+   bool haveMCAContent() const;
+   std::string getMCAContent() const;
+   bool haveMCAUseClass() const;
+   std::string getMCAUseClass() const;
+   bool haveMCAContentSubtype() const;
+   std::string getMCAContentSubtype() const;
+   bool haveMCAContentDifferentiator() const;
+   std::string getMCAContentDifferentiator() const;
+   bool haveMCASpokenLanguageAttribute() const;
+   std::string getMCASpokenLanguageAttribute() const;
+   bool haveRFC5646AdditionalSpokenLanguages() const;
+   std::string getRFC5646AdditionalSpokenLanguages() const;
+   bool haveMCAAdditionalLanguageAttributes() const;
+   std::string getMCAAdditionalLanguageAttributes() const;
 
 
    // setters
@@ -97,6 +111,13 @@ public:
    void setRFC5646SpokenLanguage(std::string value);
    void setMCAAudioContentKind(std::string value);
    void setMCAAudioElementKind(std::string value);
+   void setMCAContent(std::string value);
+   void setMCAUseClass(std::string value);
+   void setMCAContentSubtype(std::string value);
+   void setMCAContentDifferentiator(std::string value);
+   void setMCASpokenLanguageAttribute(std::string value);
+   void setRFC5646AdditionalSpokenLanguages(std::string value);
+   void setMCAAdditionalLanguageAttributes(std::string value);
 
 
 protected:
