@@ -397,6 +397,16 @@ uint32_t GenericPictureEssenceDescriptorBase::getActiveYOffset() const
     return getUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveYOffset));
 }
 
+bool GenericPictureEssenceDescriptorBase::haveAlternativeCenterCuts() const
+{
+    return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, AlternativeCenterCuts));
+}
+
+vector<mxfUL> GenericPictureEssenceDescriptorBase::getAlternativeCenterCuts() const
+{
+    return getULArrayItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, AlternativeCenterCuts));
+}
+
 void GenericPictureEssenceDescriptorBase::setSignalStandard(uint8_t value)
 {
     setUInt8Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, SignalStandard), value);
@@ -570,4 +580,14 @@ void GenericPictureEssenceDescriptorBase::setActiveXOffset(uint32_t value)
 void GenericPictureEssenceDescriptorBase::setActiveYOffset(uint32_t value)
 {
     setUInt32Item(&MXF_ITEM_K(GenericPictureEssenceDescriptor, ActiveYOffset), value);
+}
+
+void GenericPictureEssenceDescriptorBase::setAlternativeCenterCuts(const vector<mxfUL> &value)
+{
+    setULArrayItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, AlternativeCenterCuts), value);
+}
+
+void GenericPictureEssenceDescriptorBase::appendAlternativeCenterCuts(mxfUL value)
+{
+    appendULArrayItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, AlternativeCenterCuts), value);
 }

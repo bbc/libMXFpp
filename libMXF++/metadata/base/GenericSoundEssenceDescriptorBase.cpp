@@ -137,6 +137,26 @@ mxfUL GenericSoundEssenceDescriptorBase::getSoundEssenceCompression() const
     return getULItem(&MXF_ITEM_K(GenericSoundEssenceDescriptor, SoundEssenceCompression));
 }
 
+bool GenericSoundEssenceDescriptorBase::haveReferenceImageEditRate() const
+{
+    return haveItem(&MXF_ITEM_K(GenericSoundEssenceDescriptor, ReferenceImageEditRate));
+}
+
+mxfRational GenericSoundEssenceDescriptorBase::getReferenceImageEditRate() const
+{
+    return getRationalItem(&MXF_ITEM_K(GenericSoundEssenceDescriptor, ReferenceImageEditRate));
+}
+
+bool GenericSoundEssenceDescriptorBase::haveReferenceAudioAlignmentLevel() const
+{
+    return haveItem(&MXF_ITEM_K(GenericSoundEssenceDescriptor, ReferenceAudioAlignmentLevel));
+}
+
+int8_t GenericSoundEssenceDescriptorBase::getReferenceAudioAlignmentLevel() const
+{
+    return getInt8Item(&MXF_ITEM_K(GenericSoundEssenceDescriptor, ReferenceAudioAlignmentLevel));
+}
+
 void GenericSoundEssenceDescriptorBase::setAudioSamplingRate(mxfRational value)
 {
     setRationalItem(&MXF_ITEM_K(GenericSoundEssenceDescriptor, AudioSamplingRate), value);
@@ -177,3 +197,12 @@ void GenericSoundEssenceDescriptorBase::setSoundEssenceCompression(mxfUL value)
     setULItem(&MXF_ITEM_K(GenericSoundEssenceDescriptor, SoundEssenceCompression), value);
 }
 
+void GenericSoundEssenceDescriptorBase::setReferenceImageEditRate(mxfRational value)
+{
+    setRationalItem(&MXF_ITEM_K(GenericSoundEssenceDescriptor, ReferenceImageEditRate), value);
+}
+
+void GenericSoundEssenceDescriptorBase::setReferenceAudioAlignmentLevel(int8_t value)
+{
+    setInt8Item(&MXF_ITEM_K(GenericSoundEssenceDescriptor, ReferenceAudioAlignmentLevel), value);
+}

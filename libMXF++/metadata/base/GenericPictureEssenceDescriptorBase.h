@@ -122,6 +122,8 @@ public:
    uint32_t getActiveXOffset() const;
    bool haveActiveYOffset() const;
    uint32_t getActiveYOffset() const;
+   bool haveAlternativeCenterCuts() const;
+   std::vector<mxfUL> getAlternativeCenterCuts() const;
 
 
    // setters
@@ -161,6 +163,8 @@ public:
    void setActiveWidth(uint32_t value);
    void setActiveXOffset(uint32_t value);
    void setActiveYOffset(uint32_t value);
+   void setAlternativeCenterCuts(const std::vector<mxfUL> &value);
+   void appendAlternativeCenterCuts(mxfUL value);
 
 
 protected:

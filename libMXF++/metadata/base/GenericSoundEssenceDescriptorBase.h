@@ -70,6 +70,10 @@ public:
    int8_t getDialNorm() const;
    bool haveSoundEssenceCompression() const;
    mxfUL getSoundEssenceCompression() const;
+   bool haveReferenceImageEditRate() const;
+   mxfRational getReferenceImageEditRate() const;
+   bool haveReferenceAudioAlignmentLevel() const;
+   int8_t getReferenceAudioAlignmentLevel() const;
 
 
    // setters
@@ -82,6 +86,8 @@ public:
    void setQuantizationBits(uint32_t value);
    void setDialNorm(int8_t value);
    void setSoundEssenceCompression(mxfUL value);
+   void setReferenceImageEditRate(mxfRational value);
+   void setReferenceAudioAlignmentLevel(int8_t value);
 
 
 protected:
