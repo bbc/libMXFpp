@@ -22,9 +22,9 @@ libMXF++ is developed on Ubuntu Linux but is supported on other Unix-like system
 
 ### Dependencies
 
-The following libraries must be installed to build libMXF++. The (Ubuntu) debian package names and versions are shown in brackets.
+The following libraries must be installed to build libMXF++.
 
-* libMXF (libmxf >= 1.0.4)
+* libMXF
 
 
 ### Unix-like Systems Build
