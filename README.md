@@ -1,14 +1,14 @@
 # libMXF++
 
-libMXF++ is a C++ wrapper library for libMXF that supports reading and writing the [SMPTE ST 377-1 MXF file format](https://ieeexplore.ieee.org/document/7292073).
+libMXF++ is a C++ wrapper library for [libMXF](https://github.com/bbc/libMXF) that supports reading and writing the [SMPTE ST 377-1 MXF file format](https://ieeexplore.ieee.org/document/7292073).
 
-libMXF++ and libMXF are used in the bmx project.
+libMXF++ and [libMXF](https://github.com/bbc/libMXF) are used in the [bmx](https://github.com/bbc/bmx) project.
 
 libMXF++ was originally developed as part of the [Ingex Project](http://ingex.sourceforge.net/) where it supported MXF transfer, playback and storage applications.
 
 ## Examples
 
-A number of examples can be found in the [examples](./examples) directory. These are not part of the core library and are not required to build bmx.
+A number of examples can be found in the [examples](./examples) directory. These are not part of the core library and are not required to build [bmx](https://github.com/bbc/bmx).
 
 * [D10MXFOP1AWriter](./examples/D10MXFOP1AWriter): library code used in the [Ingex Project](http://ingex.sourceforge.net/) for writing [SMPTE ST 386](https://ieeexplore.ieee.org/document/7291350) MXF D-10 (Sony MPEG IMX) files.
 * [OPAtomReader](./examples/OPAtomReader): library code used in the [Ingex Project](http://ingex.sourceforge.net/) for recovering Avid MXF OP-Atom files after a system failure.
@@ -21,7 +21,7 @@ libMXF++ is developed on Ubuntu Linux but is supported on other Unix-like system
 
 The following libraries must be installed to build libMXF++.
 
-* libMXF
+* [libMXF](https://github.com/bbc/libMXF)
 
 ### Unix-like Systems Build
 
@@ -41,7 +41,7 @@ Run
 
 to see a list of build configuration options.
 
-A number of `--disable-*` options are provided for disabling all examples (`--disable-examples`) or specific ones (e.g. `--disable-opatom-reader`). The `--disable-examples` option can be combined with `--enable-*` options to enable specific examples. The bmx project does not require the examples and therefore libMXF++ can be configured using `--disable-examples`.
+A number of `--disable-*` options are provided for disabling all examples (`--disable-examples`) or specific ones (e.g. `--disable-opatom-reader`). The `--disable-examples` option can be combined with `--enable-*` options to enable specific examples. The [bmx](https://github.com/bbc/bmx) project does not require the examples and therefore libMXF++ can be configured using `--disable-examples`.
 
 If you get library link errors similar to "error while loading shared libraries" then run
 
@@ -63,7 +63,7 @@ Finally, the core library and examples can be installed using
 sudo make install
 ```
 
-To avoid library link errors similar to "error while loading shared libraries" when building bmx run
+To avoid library link errors similar to "error while loading shared libraries" when building [bmx](https://github.com/bbc/bmx) run
 
 ```bash
 sudo /sbin/ldconfig
