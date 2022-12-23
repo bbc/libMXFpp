@@ -132,7 +132,7 @@ OPAtomTrackReader::OPAtomTrackReader(string filename, File *file)
     {
         int64_t essence_length = 0;
         mxfUL essence_label = g_Null_UL;
-        mxfRational edit_rate = (mxfRational){0, 1};
+        mxfRational edit_rate = {0, 1};
         FileDescriptor *file_descriptor = 0;
         uint32_t frame_size = 0;
         mxfKey key;

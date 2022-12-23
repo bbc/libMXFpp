@@ -102,7 +102,7 @@ int64_t FrameOffsetIndexTableSegment::getFrameOffset(int64_t position)
 {
     MXFPP_CHECK(position < (int64_t)mFrameOffsets.size());
 
-    return mFrameOffsets[position];
+    return mFrameOffsets[(size_t)position];
 }
 
 bool FrameOffsetIndexTableSegment::getLastIndexOffset(int64_t *offset, int64_t *position)
@@ -111,7 +111,7 @@ bool FrameOffsetIndexTableSegment::getLastIndexOffset(int64_t *offset, int64_t *
         return false;
 
     *position = mFrameOffsets.size() - 1;
-    *offset = mFrameOffsets[*position];
+    *offset = mFrameOffsets[(size_t)(*position)];
 
     return true;
 }
