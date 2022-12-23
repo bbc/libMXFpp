@@ -35,6 +35,7 @@
 #include <string>
 #include <cassert>
 
+#include <mxf/mxf_logging.h>
 
 
 namespace mxfpp

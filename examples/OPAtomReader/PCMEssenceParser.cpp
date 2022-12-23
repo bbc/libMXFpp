@@ -103,7 +103,7 @@ bool PCMEssenceParser::Read(DynamicByteArray *data, uint32_t *num_samples)
     data->allocate(frame_size);
     uint32_t count = mFile->read(data->getBytes(), frame_size);
     if (count != frame_size) {
-        mFile->seek(-count, SEEK_CUR);
+        mFile->seek(-(int64_t)count, SEEK_CUR);
         mDuration = mPosition;
         return false;
     }

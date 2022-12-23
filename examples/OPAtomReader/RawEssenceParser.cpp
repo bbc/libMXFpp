@@ -106,7 +106,7 @@ RawEssenceParser* RawEssenceParser::Create(File *file, int64_t essence_length, m
                                            const FileDescriptor *file_descriptor, mxfRational edit_rate,
                                            uint32_t frame_size, FrameOffsetIndexTableSegment *index_table)
 {
-    int64_t fixed_frame_size;
+    uint32_t fixed_frame_size;
     size_t i;
     for (i = 0; i < ARRAY_SIZE(SUPPORTED_FORMATS); i++) {
         if (mxf_equals_ul(&essence_label, &SUPPORTED_FORMATS[i].essence_label)) {
@@ -123,7 +123,7 @@ RawEssenceParser* RawEssenceParser::Create(File *file, int64_t essence_length, m
                 case PCM_PARSER:
                 {
                     // TODO: edit rate passed in should be the video edit rate
-                    mxfRational edit_rate = (mxfRational){25, 1};
+                    mxfRational edit_rate = {25, 1};
                     return new PCMEssenceParser(file, essence_length, essence_label, edit_rate, file_descriptor);
                 }
                 case VARIABLE_FRAME_SIZE_PARSER:

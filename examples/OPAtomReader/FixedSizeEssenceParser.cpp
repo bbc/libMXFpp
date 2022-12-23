@@ -37,6 +37,7 @@
 
 #include <cstring>
 #include <cstdio>
+#include <inttypes.h>
 
 #include <libMXF++/MXF.h>
 
@@ -83,7 +84,7 @@ bool FixedSizeEssenceParser::Read(DynamicByteArray *data, uint32_t *num_samples)
     data->allocate(mFrameSize);
     uint32_t count = mFile->read(data->getBytes(), mFrameSize);
     if (count != mFrameSize) {
-        mFile->seek(-count, SEEK_CUR);
+        mFile->seek(-(int64_t)count, SEEK_CUR);
         mDuration = mPosition;
         return false;
     }
@@ -202,15 +203,18 @@ bool FixedSizeEssenceParser::DetermineMPEGFrameSize()
         mEssenceStartOffset += first_frame_start;
         if (mEssenceLength > 0)
             mEssenceLength -= first_frame_start;
-        mFrameSize = second_frame_start - first_frame_start;
+        MXFPP_CHECK(second_frame_start - first_frame_start <= UINT32_MAX);
+        mFrameSize = (uint32_t)(second_frame_start - first_frame_start);
     } else if (first_frame_start > 0) {
         // assume a single frame which ends at the end of the essence data or file
         mEssenceStartOffset += first_frame_start;
         if (mEssenceLength > 0) {
             mEssenceLength -= first_frame_start;
-            mFrameSize = mEssenceLength;
+            MXFPP_CHECK(mEssenceLength <= UINT32_MAX);
+            mFrameSize = (uint32_t)mEssenceLength;
         } else {
-            mFrameSize = offset - first_frame_start;
+            MXFPP_CHECK(offset - first_frame_start <= UINT32_MAX);
+            mFrameSize = (uint32_t)(offset - first_frame_start);
         }
     }
 
