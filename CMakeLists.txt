@@ -23,7 +23,7 @@ project(libMXF++
 set(PROJECT_VERSION_RELEASE 2)
 
 if(MSVC)
-    add_compile_options(/W3)
+    add_compile_options(/W3 /EHsc)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
     if(LIBMXFPP_SET_MSVC_RUNTIME AND CMAKE_VERSION VERSION_LESS 3.15.0)
