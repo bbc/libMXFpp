@@ -77,7 +77,10 @@ set_target_properties(MXFpp PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
-install(TARGETS MXFpp LIBRARY DESTINATION lib)
+install(TARGETS MXFpp
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+)
 foreach(include_file ${MXFpp_headers})
     get_filename_component(dir ${include_file} DIRECTORY)
     install(FILES ${include_file} DESTINATION include/libMXF++/${dir})
