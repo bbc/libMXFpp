@@ -38,7 +38,10 @@ set_target_properties(opatomreader PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
-install(TARGETS opatomreader LIBRARY DESTINATION lib)
+install(TARGETS opatomreader
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+)
 install(FILES ${opatomreader_headers} DESTINATION include/libMXF++/examples/OPAtomReader)
 
 

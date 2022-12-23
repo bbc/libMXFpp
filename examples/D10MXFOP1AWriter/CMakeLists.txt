@@ -26,7 +26,10 @@ set_target_properties(d10mxfop1awriter PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
-install(TARGETS d10mxfop1awriter LIBRARY DESTINATION lib)
+install(TARGETS d10mxfop1awriter
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+)
 install(FILES ${d10mxfop1awriter_headers} DESTINATION include/libMXF++/examples/D10MXFOP1AWriter)
 
 
