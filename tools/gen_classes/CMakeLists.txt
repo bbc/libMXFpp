@@ -1,9 +1,6 @@
 add_executable(gen_classes
     gen_metadata_classes.cpp
 )
-target_include_directories(MXFpp PUBLIC
-    ${libMXF_SOURCE_DIR}
-)
 target_link_libraries(gen_classes PRIVATE
     ${MXF_link_lib}
 )

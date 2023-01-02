@@ -24,12 +24,4 @@ target_link_libraries(libmxfpp_examples_common PUBLIC
     ${MXF_link_lib}
 )
 
-if(UNIX)
-    # The static library will be linked into the dynamic libraries of the examples.
-    # The -fPIC compile option ensures it generates position independent code
-    target_compile_options(libmxfpp_examples_common PRIVATE
-        -fPIC
-    )
-endif()
-
 install(FILES ${libmxfpp_examples_common_headers} DESTINATION include/libMXF++/examples/Common)
