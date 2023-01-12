@@ -42,12 +42,12 @@ namespace mxfpp
 {
 
 
-#define MXFPP_CHECK(cmd)                                                              \
-    do {                                                                              \
-        if (!(cmd)) {                                                                 \
-            mxf_log_error("'%s' failed, at %s:%d\n", #cmd, __FILE__, __LINE__);       \
-            throw MXFException("'%s' failed, at %s:%d", #cmd, __FILE__, __LINE__);    \
-        }                                                                             \
+#define MXFPP_CHECK(cmd)                                                                \
+    do {                                                                                \
+        if (!(cmd)) {                                                                   \
+            mxf_log_error("'%s' failed, at %s:%d\n", #cmd, __FILENAME__, __LINE__);     \
+            throw MXFException("'%s' failed, at %s:%d", #cmd, __FILENAME__, __LINE__);  \
+        }                                                                               \
     } while (0)
 
 #if defined(NDEBUG)

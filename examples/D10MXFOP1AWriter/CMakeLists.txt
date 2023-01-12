@@ -26,6 +26,9 @@ set_target_properties(d10mxfop1awriter PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
+include("${PROJECT_SOURCE_DIR}/cmake/source_filename.cmake")
+set_source_filename(d10mxfop1awriter "${CMAKE_CURRENT_LIST_DIR}" "libMXF++")
+
 install(TARGETS d10mxfop1awriter
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
@@ -41,3 +44,6 @@ target_link_libraries(test_d10mxfop1awriter
     d10mxfop1awriter
     MXFpp
 )
+
+include("${PROJECT_SOURCE_DIR}/cmake/source_filename.cmake")
+set_source_filename(test_d10mxfop1awriter "${CMAKE_CURRENT_LIST_DIR}" "libMXF++")

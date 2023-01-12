@@ -77,6 +77,9 @@ set_target_properties(MXFpp PROPERTIES
     SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
+include("${PROJECT_SOURCE_DIR}/cmake/source_filename.cmake")
+set_source_filename(MXFpp "${CMAKE_CURRENT_LIST_DIR}" "libMXF++")
+
 install(TARGETS MXFpp
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib

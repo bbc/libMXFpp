@@ -13,6 +13,9 @@ target_link_libraries(simple
     ${MXF_link_lib}
 )
 
+include("${PROJECT_SOURCE_DIR}/cmake/source_filename.cmake")
+set_source_filename(simple "${CMAKE_CURRENT_LIST_DIR}" "libMXF++")
+
 add_test(NAME libMXFpp_simple_test
     COMMAND ${command_prefix} $<TARGET_FILE:simple>
 )

@@ -24,4 +24,7 @@ target_link_libraries(libmxfpp_examples_common PUBLIC
     ${MXF_link_lib}
 )
 
+include("${PROJECT_SOURCE_DIR}/cmake/source_filename.cmake")
+set_source_filename(libmxfpp_examples_common "${CMAKE_CURRENT_LIST_DIR}" "libMXF++")
+
 install(FILES ${libmxfpp_examples_common_headers} DESTINATION include/libMXF++/examples/Common)
