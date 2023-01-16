@@ -45,9 +45,12 @@ const char* mxfpp::get_mxfpp_scm_version_string()
 {
     static string version_string;
     if (version_string.empty()) {
-        version_string = git::Describe();
+        version_string = git::DescribeTag();
+        if (version_string.empty() || version_string == "unknown")
+            version_string = git::Describe();
+
 #ifdef PACKAGE_GIT_VERSION_STRING
-        if (version_string == "unknown") {
+        if (version_string.empty() || version_string == "unknown") {
             version_string = PACKAGE_GIT_VERSION_STRING;
         }
         else
