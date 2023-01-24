@@ -68,7 +68,7 @@ target_link_libraries(MXFpp PUBLIC
 # Add the git version tracking library code
 include("${PROJECT_SOURCE_DIR}/cmake/git_version.cmake")
 target_link_libraries(MXFpp PRIVATE
-    libmxfpp_cmake_git_version_tracking
+    libmxfpp_git_version
 )
 
 set_target_properties(MXFpp PROPERTIES

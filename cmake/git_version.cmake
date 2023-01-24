@@ -1,4 +1,4 @@
-if(TARGET libmxfpp_cmake_git_version_tracking)
+if(TARGET libmxfpp_git_version)
     return()
 endif()
 
@@ -15,12 +15,12 @@ include(FetchContent)
 set(git_version_deps_source "${PROJECT_SOURCE_DIR}/deps/cmake-git-version-tracking")
 
 if(EXISTS ${git_version_deps_source})
-    FetchContent_Declare(libmxfpp_cmake_git_version_tracking
+    FetchContent_Declare(libmxfpp_git_version
         SOURCE_DIR ${git_version_deps_source}
     )
     message("-- Build using git version source: ${git_version_deps_source}")
 else()
-    FetchContent_Declare(libmxfpp_cmake_git_version_tracking
+    FetchContent_Declare(libmxfpp_git_version
         GIT_REPOSITORY "https://github.com/andrew-hardin/cmake-git-version-tracking.git"
         GIT_TAG "904dbda1336ba4b9a1415a68d5f203f576b696bb"
         PATCH_COMMAND git reset --hard
@@ -28,8 +28,8 @@ else()
     )
 endif()
 
-FetchContent_GetProperties(libmxfpp_cmake_git_version_tracking)
-if(NOT libmxfpp_cmake_git_version_tracking_POPULATED)
-    FetchContent_Populate(libmxfpp_cmake_git_version_tracking)
-    add_subdirectory(${libmxfpp_cmake_git_version_tracking_SOURCE_DIR} ${libmxfpp_cmake_git_version_tracking_BINARY_DIR})
+FetchContent_GetProperties(libmxfpp_git_version)
+if(NOT libmxfpp_git_version_POPULATED)
+    FetchContent_Populate(libmxfpp_git_version)
+    add_subdirectory(${libmxfpp_git_version_SOURCE_DIR} ${libmxfpp_git_version_BINARY_DIR})
 endif()
