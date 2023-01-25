@@ -33,14 +33,33 @@
 #include "config.h"
 #endif
 
-#include "mxfpp_scm_version.h"
+#include "git.h"
+#include "fallback_git_version.h"
 
 #include <libMXF++/MXFVersion.h>
 
+using namespace std;
 
 
 const char* mxfpp::get_mxfpp_scm_version_string()
 {
-    return LIBMXFPP_SCM_VERSION;
-}
+    static string version_string;
+    if (version_string.empty()) {
+        version_string = git::DescribeTag();
+        if (version_string.empty() || version_string == "unknown")
+            version_string = git::Describe();
 
+#ifdef PACKAGE_GIT_VERSION_STRING
+        if (version_string.empty() || version_string == "unknown") {
+            version_string = PACKAGE_GIT_VERSION_STRING;
+        }
+        else
+#endif
+        {
+            if (git::AnyUncommittedChanges())
+                version_string += "-dirty";
+        }
+    }
+
+    return version_string.c_str();
+}
