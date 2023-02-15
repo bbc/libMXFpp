@@ -3,6 +3,9 @@ if(TARGET libmxfpp_git_version)
 endif()
 
 
+# Ensure the cmake targets and code symbols are libMXFpp specific
+set(GIT_VERSION_PROJECT_PREFIX "libmxfpp_")
+
 # Set the git release tag pattern to describe relative to
 set(GIT_DESCRIBE_TAG_PATTERN "v${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}")
 set(GIT_WORKING_DIR ${PROJECT_SOURCE_DIR})

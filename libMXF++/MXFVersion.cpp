@@ -45,9 +45,9 @@ const char* mxfpp::get_mxfpp_scm_version_string()
 {
     static string version_string;
     if (version_string.empty()) {
-        version_string = git::DescribeTag();
+        version_string = libmxfpp_git::DescribeTag();
         if (version_string.empty() || version_string == "unknown")
-            version_string = git::Describe();
+            version_string = libmxfpp_git::Describe();
 
 #ifdef PACKAGE_GIT_VERSION_STRING
         if (version_string.empty() || version_string == "unknown") {
@@ -56,7 +56,7 @@ const char* mxfpp::get_mxfpp_scm_version_string()
         else
 #endif
         {
-            if (git::AnyUncommittedChanges())
+            if (libmxfpp_git::AnyUncommittedChanges())
                 version_string += "-dirty";
         }
     }
