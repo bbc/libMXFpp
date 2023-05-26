@@ -303,6 +303,48 @@ bool File::readHeaderPartition()
     }
 }
 
+Partition* File::readFooterPartition()
+{
+    mxfKey key;
+    uint8_t llen;
+    uint64_t len;
+    MXFRIP rip;
+    MXFRIPEntry *last_rip_entry;
+    int64_t footer_this_partition = 0;
+
+    // Try find the footer partition in the RIP
+    if (mxf_read_rip(_cFile, &rip)) {
+        last_rip_entry = (MXFRIPEntry*)mxf_get_last_list_element(&rip.entries);
+        if (last_rip_entry) {
+            footer_this_partition = last_rip_entry->thisPartition;
+        }
+        mxf_clear_rip(&rip);
+    }
+
+    // Else use the header partition's footerPartition property
+    if (footer_this_partition <= 0) {
+        if (_partitions.empty() || !readHeaderPartition()) {
+            return 0;
+        }
+        footer_this_partition = _partitions[0]->getFooterPartition();
+    }
+
+    if (footer_this_partition > 0) {
+        try
+        {
+            seek(mxf_get_runin_len(_cFile) + footer_this_partition, SEEK_SET);
+            readKL(&key, &llen, &len);
+            return Partition::read(this, &key, len);
+        }
+        catch (...)
+        {
+            mxf_log_error("Failed to read the footer partition\n");
+        }
+    }
+
+    return 0;
+}
+
 bool File::readPartitions()
 {
     mxfKey key;

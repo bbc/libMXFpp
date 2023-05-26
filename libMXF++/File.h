@@ -71,6 +71,7 @@ public:
     const std::vector<Partition*>& getPartitions() const { return _partitions; }
 
     bool readHeaderPartition();
+    Partition* readFooterPartition();  // Caller takes ownership
     bool readPartitions();
     void readNextPartition(const mxfKey *key, uint64_t len);
 
