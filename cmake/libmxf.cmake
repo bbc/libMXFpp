@@ -20,6 +20,10 @@ else()
 
     include(FetchContent)
 
+    if(LIBMXFPP_BUILD_LIB_ONLY)
+        set(LIBMXF_BUILD_LIB_ONLY ON CACHE BOOL "Build libMXF only")
+    endif()
+
     FetchContent_Declare(libMXF
         SOURCE_DIR ${PROJECT_SOURCE_DIR}/deps/libMXF
     )
