@@ -23,7 +23,6 @@ if(BUILD_SHARED_LIBS)
     # Ensure that static library code can be linked into the dynamic libraries (-fPIC compile option)
     set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 endif()
-set(CMAKE_CXX_STANDARD 11)
 
 if(MSVC)
     add_compile_options(/W3 /EHsc)
