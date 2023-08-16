@@ -4,6 +4,7 @@ list(APPEND MXFpp_sources
     metadata/AVCSubDescriptor.cpp
     metadata/AudioChannelLabelSubDescriptor.cpp
     metadata/CDCIEssenceDescriptor.cpp
+    metadata/ContainerConstraintsSubDescriptor.cpp
     metadata/ContentStorage.cpp
     metadata/DCTimedTextDescriptor.cpp
     metadata/DCTimedTextResourceSubDescriptor.cpp
@@ -58,6 +59,7 @@ list(APPEND MXFpp_headers
     metadata/AVCSubDescriptor.h
     metadata/AudioChannelLabelSubDescriptor.h
     metadata/CDCIEssenceDescriptor.h
+    metadata/ContainerConstraintsSubDescriptor.h
     metadata/ContentStorage.h
     metadata/DCTimedTextDescriptor.h
     metadata/DCTimedTextResourceSubDescriptor.h
