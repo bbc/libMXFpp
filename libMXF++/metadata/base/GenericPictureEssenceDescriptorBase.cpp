@@ -227,6 +227,13 @@ std::vector<int32_t> GenericPictureEssenceDescriptorBase::getVideoLineMap() cons
     return getInt32ArrayItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, VideoLineMap));
 }
 
+mxfVideoLineMap GenericPictureEssenceDescriptorBase::getVideoLineMapStruct() const
+{
+    mxfVideoLineMap result;
+    MXFPP_CHECK(mxf_get_video_line_map_item(_cMetadataSet, &MXF_ITEM_K(GenericPictureEssenceDescriptor, VideoLineMap), &result));
+    return result;
+}
+
 bool GenericPictureEssenceDescriptorBase::haveAlphaTransparency() const
 {
     return haveItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, AlphaTransparency));
@@ -489,7 +496,25 @@ void GenericPictureEssenceDescriptorBase::setActiveFormatDescriptor(uint8_t valu
 
 void GenericPictureEssenceDescriptorBase::setVideoLineMap(const std::vector<int32_t> &value)
 {
-    setInt32ArrayItem(&MXF_ITEM_K(GenericPictureEssenceDescriptor, VideoLineMap), value);
+    mxfVideoLineMap value_struct = g_Null_Video_Line_Map;
+    if (value.size() > 0) {
+        value_struct.first = value[0];
+        if (value.size() > 1)
+            value_struct.second = value[1];
+    }
+
+    setVideoLineMap(value_struct);
+}
+
+void GenericPictureEssenceDescriptorBase::setVideoLineMap(int32_t first, int32_t second)
+{
+    mxfVideoLineMap value_struct = {first, second};
+    setVideoLineMap(value_struct);
+}
+
+void GenericPictureEssenceDescriptorBase::setVideoLineMap(mxfVideoLineMap value)
+{
+    MXFPP_CHECK(mxf_set_video_line_map_item(_cMetadataSet, &MXF_ITEM_K(GenericPictureEssenceDescriptor, VideoLineMap), &value));
 }
 
 void GenericPictureEssenceDescriptorBase::appendVideoLineMap(int32_t value)

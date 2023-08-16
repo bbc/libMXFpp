@@ -88,6 +88,7 @@ public:
    uint8_t getActiveFormatDescriptor() const;
    bool haveVideoLineMap() const;
    std::vector<int32_t> getVideoLineMap() const;
+   mxfVideoLineMap getVideoLineMapStruct() const;
    bool haveAlphaTransparency() const;
    uint8_t getAlphaTransparency() const;
    bool haveCaptureGamma() const;
@@ -145,6 +146,8 @@ public:
    void setAspectRatio(mxfRational value);
    void setActiveFormatDescriptor(uint8_t value);
    void setVideoLineMap(const std::vector<int32_t> &value);
+   void setVideoLineMap(int32_t first, int32_t second);
+   void setVideoLineMap(mxfVideoLineMap value);
    void appendVideoLineMap(int32_t value);
    void setAlphaTransparency(uint8_t value);
    void setCaptureGamma(mxfUL value);
