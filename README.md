@@ -1,3 +1,7 @@
+# ARCHIVED
+
+**This repository has been archived and is no longer maintained. The code has been moved into the [bmx deps/ directory](https://github.com/bbc/bmx/tree/main/deps/libMXFpp). libMXF++ can still be built independently from bmx if required.**
+
 # libMXF++
 
 libMXF++ is a C++ wrapper library for [libMXF](https://github.com/bbc/libMXF) that supports reading and writing the [SMPTE ST 377-1 MXF file format](https://ieeexplore.ieee.org/document/7292073).
